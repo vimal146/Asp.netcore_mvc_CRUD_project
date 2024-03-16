@@ -1,0 +1,60 @@
+﻿@model EmployeeDetails.Models.Employee
+
+@{
+	Layout = "~/Views/Shared/_Employee.cshtml";
+}
+
+<html>
+<head>
+	<title>Employee Details</title>
+	<link href="~/css/Employees.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<div class="fields">
+			<form   asp-action="View" method="post"  >
+				<label asp-for="EmployeeId"></label><br />
+				<input asp-for="EmployeeId" type="text" readonly /><br />
+				<label asp-for="EmployeeName"></label><br />
+				<input asp-for="EmployeeName" type="text" autocomplete="off"/><br />
+				<label asp-for="EmployeeDOB"></label><br />
+				<input asp-for="EmployeeDOB" type="date" style="width:188px" autocomplete="off" /><br />
+				<label asp-for="EmployeePh"></label><br />
+				<input asp-for="EmployeePh" type="text" autocomplete="off" /><br />
+				<label asp-for="Description"></label><br />
+				<textarea asp-for="Description" type="text" style="height:80px"></textarea><br />
+				<input type="submit" value="Save"   style="background-color: #04AA6D; color: white;
+                 padding: 10px 20px;border: none;border-radius: 4px;cursor: pointer;  ">
+				<input type="submit" value="Delete"  style="background-color: red; color: white;
+                 margin-left:20px;  padding: 10px 20px;border: none;border-radius: 4px;cursor: pointer;  "
+					
+					asp-action="Delete"
+					   asp-controller="Employee" onclick="return confirm('Are you sure you want to delete this?')">
+
+				<a href="Index" style="margin-left: 50px;">
+					<span>Back to List</span>
+				</a>
+
+				<a href="/Employee/Add" style="margin-left: 50px;">
+					<span>Employee Add</span>
+				</a>
+				
+			</form>
+
+			
+			
+		</div>
+		
+	</div>
+	
+	<a href="/Home/Index" style="font-size: 17px;  margin-left: 70px;">
+		<span>Back to Dashboard</span>
+	</a>
+
+</body>
+</html>
+
+
+
+

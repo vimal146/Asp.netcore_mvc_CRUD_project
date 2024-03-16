@@ -1,0 +1,57 @@
+﻿@model EmployeeDetails.Models.Employee
+@{
+	Layout = "~/Views/Shared/_Employee.cshtml";
+}
+
+
+<html>
+<head>
+	<title>Employee Details</title>
+	<link href="~/css/Employee.css" rel="stylesheet">
+	
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="fields">
+			<form asp-action="Add" method="post">
+				<label asp-for="EmployeeName">Employee Name</label><br />
+				<input asp-for="EmployeeName" type="text" autocomplete="off" required /><br />
+				<label asp-for="EmployeeDOB">Date of Birth</label><br />
+				<input asp-for="EmployeeDOB" type="date" autocomplete="off" required /><br />
+				<label asp-for="EmployeePh">Phone No:</label><br />
+				<input asp-for="EmployeePh" type="text" autocomplete="off"  required  minlength="10"
+                     maxlength="12" /><br />
+				<label asp-for="Description">Descriptio</label><br />
+				<textarea asp-for="Description" type="text" style="height:80px"></textarea><br />
+				<input type="submit" value="Save" autocomplete="off"  style="background-color: #04AA6D; color: white;
+                 padding: 10px 20px;border: none;border-radius: 4px;cursor: pointer;  " required>
+
+				<a href="Index" style="margin-left: 50px;">
+					<span>Back to List</span>
+				</a>
+
+				<a href="/Home/Index" style="margin-left: 50px;">
+					<span>Back to Dashboard</span>
+				</a>
+			</form>
+
+		</div>
+	</div>
+
+</body>
+
+
+</html>
+
+@section Scripts{
+	<script>
+		$(function () {
+			var successMessage = '@TempData["SuccessMessage"]';
+			if (successMessage) {
+				alert(successMessage);
+			}
+		});
+	</script>
+}
